@@ -18,8 +18,6 @@ for i in stream:
         counter_true+=1
         diff_of_counters.append(counter_true-counter)
         
-    
-
 
 
 elements=list(range(1,real_count+1))

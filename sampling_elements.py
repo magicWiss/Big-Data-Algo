@@ -28,18 +28,33 @@ def create_sample(sample_size,stream):
         else:
             d=random.randint(0,i)
             if d<sample_size:
-                print('Old value:',sample[d])
-                print('New val:',stream[d])
+                
                 sample[d]=stream[i]
-                print('Inserito elemento in sample in pos ',d)
+                
 
 
     return sample
+
+from collections import Counter
+
+def get_stats(elements):
+    N=len(elements)
+    coutner=Counter(elements)
+    
+    for k in coutner.keys():
+        coutner[k]=coutner[k]/N*100
+    
+    print(coutner)
+
+
 if __name__=='__main__':
     max_number_of_elements=1000
     elements=prep_elements(max_number_of_elements)
-
+    stats=get_stats(elements)
     sample_size=int(0.1*(max_number_of_elements))
     sample=create_sample(sample_size,elements)
+    stats=get_stats(sample)
+    
 
-    print(sample)
+
+    #si nota che la poporzione di elementi nello stram iniziale è molto simile a quella presente nel sample
